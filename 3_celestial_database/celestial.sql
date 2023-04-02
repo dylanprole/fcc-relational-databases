@@ -137,7 +137,8 @@ INSERT INTO moon (
 INSERT INTO mountain (
     name,
     planet_id,
-    height_in_km
+    height_in_km,
+    climbed_by_humans
 ) VALUES
     ('mount everest', 3, 8.8, TRUE),
     ('k2', 3, 8.6, TRUE),
