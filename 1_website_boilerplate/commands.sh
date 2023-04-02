@@ -10,6 +10,7 @@ command --help # Shows all the flags and arguments for the specified command e.g
 sudo # Super user do - precedes commands
 more <file_name> # Display contents of file
 clear # Clean up the current terminal
+man <command> # View manual for the command specified
 
 ######################################### WRITING #########################################
 echo text >> filename # Writes text to a specified file
