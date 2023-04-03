@@ -42,7 +42,7 @@ ALTER TABLE table_name ADD COLUMN column_name DATATYPE CONDITIONS;
     INT;
     SERIAL;
     NUMERIC(digits_before_floating_point, digits_after_floating_point);
-    DATATYPE REFERENCES referenced_table_name(referenced_column_name); -- Creates primary key
+    DATATYPE REFERENCES referenced_table_name(referenced_column_name); -- Creates foreign primary key
     DATE;
 
 -- Delete column
