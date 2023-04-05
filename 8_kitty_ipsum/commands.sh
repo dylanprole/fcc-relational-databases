@@ -102,3 +102,4 @@ sed 's/catnip/dogchow/g; s/cat/dog/g; s/meow/woof/g'
 # View the differences between 2 files
 diff <file_1> <file_2>
 --side-by-side # output in two columns
+--color # Show differences in colour
