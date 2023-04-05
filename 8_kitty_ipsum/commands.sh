@@ -62,8 +62,43 @@ wc -m <file_name.txt>
 cat < kitty_ipsum_1.txt | wc
 
 # Search for patterns in text files
-grep '<pattern>' <file_name> # shows lines that contain pattern
+grep '<pattern>' <file_name.txt> # shows lines that contain pattern
 # Flags
 -o # Only the matching pattern is returned
--c # Get a count for the pattern
+-c # Get a count for number of lines it appears in
 -i # Ignore case
+-n / --line-number # Include the line number with output
+-- color # Return the pattern in red (or another colour)
+
+# We can pipe the above grep output into wc 
+grep -o 'pattern' file_name.txt | wc -l # Gives us number of times word appears in text
+
+
+# Replace text in a file with sed
+sed 's/<pattern_to_replace>/<text_to_replace_it_with>/' <filename>
+# we can add regular expression flags after the last forward slash
+sed 's/freecodecamp/f233C0d3C@mp/i' name.txt # i = case insensitive
+# We can also pipe the input
+cat name.txt | sed 's/freecodecamp/f233C0d3C@mp/i'
+-E # use extended regular expressions in the script 
+
+# Using grep with sed
+grep -n 'meow[a-z]*' kitty_ipsum_1.txt | sed -E 's/[0-9]+/1/'
+
+# Searching multiple patterns
+grep -E '<dog_words>|<woof_words>' # must include extended reg exp flag
+
+# We can capture the desired regular expressions with themselves with
+\
+'s/([0-9]+)/\1/'
+grep -n 'meow[a-z]*' kitty_ipsum_1.txt | sed -E 's/([0-9]+)/\1/'
+
+# Replacing multiple patterns:
+sed 's/<pattern_1>/<replacement_1>/; s/<pattern_2>/<replacement_2>/'
+
+# Use global flag to replace all patterns on the same line
+sed 's/catnip/dogchow/g; s/cat/dog/g; s/meow/woof/g'
+
+# View the differences between 2 files
+diff <file_1> <file_2>
+--side-by-side # output in two columns
