@@ -77,3 +77,33 @@ git stash show stash@{number}
 
 # Drop stashes with
 git stash drop <stash_name>
+
+# Removing or undoing commits
+git reset
+git reset HEAD~1 # Go back 1 commit before head
+--hard # flag with the reset, the changes would have not been added to the working tree
+
+# You can revert the most recent commit (HEAD) with 
+git revert HEAD
+
+# see the last commit added
+git show
+
+# WE can enter an interactive mode to manipulate commits
+git rebase --interactive HEAD~2 # HEAD~2 means we can manipulate the previous 2 commits
+git rebase --interactive --root # This will take us back to the very first commit
+
+# WARNING going back to --root will change commit hashes, and you will not be able to merge back into main
+# to fix this, we can rebase from main
+git rebase main
+
+# View the most recent commit
+git log -1
+
+# IMPORTANT adding gitignore
+git checkout -b feat/add-gitignore
+touch .env # we can add secret environment variables to this
+touch .gitignore
+
+# We can create a file which contains a sample of the secret environment variables to use within our code
+touch sample.env
